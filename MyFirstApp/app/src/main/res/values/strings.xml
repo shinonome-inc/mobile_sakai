@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MyFirstApp</string>
+    <string name="message_text">...</string>
+    <string name="button_text">Change!</string>
+    <string name="textview">leap year</string>
+    <string name="leap_year">leap year</string>
+</resources>
