@@ -10,36 +10,36 @@ import UIKit
 
 class FeedPageCellViewController: UITableViewCell {
     
+    
     @IBOutlet var userIcon: UIImageView!
     @IBOutlet var articleTitle: UILabel!
-    @IBOutlet var userId: UILabel!
-    @IBOutlet var postData: UILabel!
+    @IBOutlet var articleInfo: UILabel!
     
-    //TODO:UserIconの画像のサイズはこれから要調整
     func setArticleCell(data: DataItem) {
         guard let imageUrl = URL(string: data.user.profileImageUrl) else { return }
         
-        do{
-            let imageData = try Data(contentsOf: imageUrl)
-            guard let image = UIImage(data: imageData)?.scaleImage(scaleSize: 0.1) else { return }
-            //print(data.title as String)
-            //print(image!.size)
-            userIcon.image = image
-            userIcon.circle()
-        } catch {
-            print("error: Can't get image")
-        }
+        URLSession.shared.dataTask(with: imageUrl) { [weak self] data, response, error in
+            
+                if error == nil, case .some(let result) = data, let image = UIImage(data: result) {
+                    
+                    guard let unwrappedSelf = self else { return }
+                    
+                    DispatchQueue.main.sync {
+                        unwrappedSelf.userIcon.image = image
+                    }
+
+                } else {
+                    print("error")
+
+                }
+        }.resume()
         
-        //ToDo:Dataフォーマット変更
+        //Dateのフォーマット変更
+        let format = DateFormatter()
+        let articleDate = SetDataFormat().dateFormat(format: format, defaultFormat: "yyyy-MM-dd'T'HH:mm'+'HH:mm", formatTarget: data.createdAt)
+        
         articleTitle.text = data.title
-        userId.text = "@" + data.user.id
-        postData.text = "投稿日：" + data.createdAt
+        articleInfo.text = "@\(data.user.id) 投稿日：\(format.string(from: articleDate)) LGTM：\(data.likesCount)"
     }
     
-}
-
-func trimmingImage(_ image: UIImage, trimmingArea: CGRect) -> UIImage {
-    guard let imgRef = image.cgImage?.cropping(to: trimmingArea) else { return UIImage() }
-    let trimImage = UIImage(cgImage: imgRef, scale: image.scale, orientation: image.imageOrientation)
-    return trimImage
 }

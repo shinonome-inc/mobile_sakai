@@ -9,11 +9,9 @@
 import Foundation
 
 struct DataItem: Codable {
-    let body: String
-    let id: String
-    let renderedBody: String
     let title: String
     let url: String
+    var likesCount: Int
     var createdAt: String
     var user: User
     struct User: Codable {

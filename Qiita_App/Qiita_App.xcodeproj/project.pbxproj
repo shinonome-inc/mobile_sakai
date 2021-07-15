@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0702CC792668CDD30095CF82 /* TagListPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0702CC782668CDD30095CF82 /* TagListPageViewController.swift */; };
-		0702CC7B2668D2260095CF82 /* TagModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0702CC7A2668D2260095CF82 /* TagModel.swift */; };
 		0716D7CE261EED7B008038D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0716D7CD261EED7B008038D1 /* AppDelegate.swift */; };
 		0716D7D0261EED7B008038D1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0716D7CF261EED7B008038D1 /* SceneDelegate.swift */; };
 		0716D7D2261EED7B008038D1 /* TopPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0716D7D1261EED7B008038D1 /* TopPageViewController.swift */; };
@@ -25,9 +24,11 @@
 		075BE0D6266B77C200D2DBCD /* TagListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075BE0D5266B77C200D2DBCD /* TagListCell.swift */; };
 		079A87BC263E7BD0008C2503 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A87BB263E7BD0008C2503 /* MainTabBarController.swift */; };
 		079DF1792662546B00F298F6 /* SecretKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079DF1782662546B00F298F6 /* SecretKey.swift */; };
+		07B7550D2685D348009CD7EF /* TagModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B7550C2685D348009CD7EF /* TagModel.swift */; };
 		07D042B626281B3B0096EDD7 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07D042B526281B3B0096EDD7 /* WebKit.framework */; };
+		07DE4A2A268D9B8300ED9048 /* DataFormate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DE4A29268D9B8300ED9048 /* DataFormate.swift */; };
 		07E7B89D2671F4A500C0FB1E /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E7B89C2671F4A500C0FB1E /* UIImage+Extension.swift */; };
-		07E7B89F2671F51800C0FB1E /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E7B89E2671F51800C0FB1E /* UIImageView+Extension.swift */; };
+		07E7B89F2671F51800C0FB1E /* EnhancedCircleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E7B89E2671F51800C0FB1E /* EnhancedCircleImageView.swift */; };
 		372618CB28352E9673FAD014 /* Pods_Qiita_App_Qiita_AppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E51BF7201AE226CA5FA6EA2A /* Pods_Qiita_App_Qiita_AppUITests.framework */; };
 		8951C901D3280165AAA67226 /* Pods_Qiita_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D267A09C6D8BB6602C0AC844 /* Pods_Qiita_App.framework */; };
 		D52A24D5AF241FD14F048CBD /* Pods_Qiita_AppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFAF87A7378337E9C6265B64 /* Pods_Qiita_AppTests.framework */; };
@@ -53,7 +54,6 @@
 /* Begin PBXFileReference section */
 		01AF906B2B7B997C63AAC2AA /* Pods-Qiita_App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Qiita_App.debug.xcconfig"; path = "Target Support Files/Pods-Qiita_App/Pods-Qiita_App.debug.xcconfig"; sourceTree = "<group>"; };
 		0702CC782668CDD30095CF82 /* TagListPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagListPageViewController.swift; sourceTree = "<group>"; };
-		0702CC7A2668D2260095CF82 /* TagModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagModel.swift; sourceTree = "<group>"; };
 		0716D7CA261EED7B008038D1 /* Qiita_App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Qiita_App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0716D7CD261EED7B008038D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0716D7CF261EED7B008038D1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,9 +76,11 @@
 		075BE0D5266B77C200D2DBCD /* TagListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagListCell.swift; sourceTree = "<group>"; };
 		079A87BB263E7BD0008C2503 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		079DF1782662546B00F298F6 /* SecretKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretKey.swift; sourceTree = "<group>"; };
+		07B7550C2685D348009CD7EF /* TagModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagModel.swift; sourceTree = "<group>"; };
 		07D042B526281B3B0096EDD7 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		07DE4A29268D9B8300ED9048 /* DataFormate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFormate.swift; sourceTree = "<group>"; };
 		07E7B89C2671F4A500C0FB1E /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
-		07E7B89E2671F51800C0FB1E /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		07E7B89E2671F51800C0FB1E /* EnhancedCircleImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnhancedCircleImageView.swift; sourceTree = "<group>"; };
 		2A79E37873E9F7AFFB68072B /* Pods-Qiita_App-Qiita_AppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Qiita_App-Qiita_AppUITests.debug.xcconfig"; path = "Target Support Files/Pods-Qiita_App-Qiita_AppUITests/Pods-Qiita_App-Qiita_AppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		721F4EE51BE3EF0090240ADA /* Pods-Qiita_AppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Qiita_AppTests.debug.xcconfig"; path = "Target Support Files/Pods-Qiita_AppTests/Pods-Qiita_AppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		92AFE35B24F8B2212083D60B /* Pods-Qiita_App-Qiita_AppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Qiita_App-Qiita_AppUITests.release.xcconfig"; path = "Target Support Files/Pods-Qiita_App-Qiita_AppUITests/Pods-Qiita_App-Qiita_AppUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -158,10 +160,11 @@
 				071772CD2647B38200899627 /* FeedPageCell.swift */,
 				079DF1782662546B00F298F6 /* SecretKey.swift */,
 				0702CC782668CDD30095CF82 /* TagListPageViewController.swift */,
-				0702CC7A2668D2260095CF82 /* TagModel.swift */,
 				075BE0D5266B77C200D2DBCD /* TagListCell.swift */,
 				07E7B89C2671F4A500C0FB1E /* UIImage+Extension.swift */,
-				07E7B89E2671F51800C0FB1E /* UIImageView+Extension.swift */,
+				07E7B89E2671F51800C0FB1E /* EnhancedCircleImageView.swift */,
+				07B7550C2685D348009CD7EF /* TagModel.swift */,
+				07DE4A29268D9B8300ED9048 /* DataFormate.swift */,
 			);
 			path = Qiita_App;
 			sourceTree = "<group>";
@@ -447,19 +450,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				07E7B89F2671F51800C0FB1E /* UIImageView+Extension.swift in Sources */,
+				07E7B89F2671F51800C0FB1E /* EnhancedCircleImageView.swift in Sources */,
 				071772CF2647B38200899627 /* FeedPageCell.swift in Sources */,
 				07E7B89D2671F4A500C0FB1E /* UIImage+Extension.swift in Sources */,
 				079DF1792662546B00F298F6 /* SecretKey.swift in Sources */,
+				07DE4A2A268D9B8300ED9048 /* DataFormate.swift in Sources */,
 				071772C626479D6700899627 /* DataModel.swift in Sources */,
 				0716D7D2261EED7B008038D1 /* TopPageViewController.swift in Sources */,
 				0702CC792668CDD30095CF82 /* TagListPageViewController.swift in Sources */,
 				0716D7CE261EED7B008038D1 /* AppDelegate.swift in Sources */,
 				075BE0D6266B77C200D2DBCD /* TagListCell.swift in Sources */,
-				0702CC7B2668D2260095CF82 /* TagModel.swift in Sources */,
 				079A87BC263E7BD0008C2503 /* MainTabBarController.swift in Sources */,
 				0738BD9E2626C98000E4580B /* FeedPageViewController.swift in Sources */,
 				071772C42647934000899627 /* QiitaQAuthPageViewController.swift in Sources */,
+				07B7550D2685D348009CD7EF /* TagModel.swift in Sources */,
 				0716D7D0261EED7B008038D1 /* SceneDelegate.swift in Sources */,
 				071772C82647A22300899627 /* QiitaArticlePageViewController.swift in Sources */,
 			);

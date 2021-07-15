@@ -10,16 +10,16 @@ import UIKit
 
 extension UIImage {
     
-    func reSizeImage(reSize: CGSize) -> UIImage {
-        UIGraphicsBeginImageContextWithOptions(reSize,false,UIScreen.main.scale)
-        self.draw(in: CGRect(x: 0, y: 0, width: reSize.width, height: reSize.height))
-        let reSizeImage:UIImage! = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return reSizeImage
-    }
+    func roundImage() -> UIImage {
+        let minLength: CGFloat = min(self.size.width, self.size.height)
+        let rectangleSize: CGSize = CGSize(width: minLength, height: minLength)
+        UIGraphicsBeginImageContextWithOptions(rectangleSize, false, 0.0)
 
-    func scaleImage(scaleSize: CGFloat) -> UIImage {
-        let reSize = CGSize(width: self.size.width * scaleSize, height: self.size.height * scaleSize)
-        return reSizeImage(reSize: reSize)
+        UIBezierPath(roundedRect: CGRect(origin: .zero, size: rectangleSize), cornerRadius: minLength).addClip()
+        self.draw(in: CGRect(origin: CGPoint(x: (minLength - self.size.width) / 2, y: (minLength - self.size.height) / 2), size: self.size))
+
+        guard let newImage = UIGraphicsGetImageFromCurrentImageContext() else { return UIImage()}
+        UIGraphicsEndImageContext()
+        return newImage
     }
 }

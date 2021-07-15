@@ -16,10 +16,10 @@ class FeedPageViewController: UIViewController {
     var accessToken = ""
     var page = 0
     var titleNum = 0
-    var url = "https://qiita.com/api/v2/items?count=20&page="
+    var removeFlag = false
+    var searchText = ""
+    var url = "https://qiita.com/api/v2/items?count=20"
     var articles: [DataItem] = []
-    var searchResult: [DataItem] = []
-    var articleTitles: [String] = []
     
     
     override func viewDidLoad() {
@@ -40,7 +40,7 @@ class FeedPageViewController: UIViewController {
         page += 1
         
         AF.request(
-            url + String(page),
+            url + "&page=\(page)&query=title%3A\(searchText)",
             method: .get,
             parameters: nil,
             encoding: JSONEncoding.default,
@@ -52,6 +52,11 @@ class FeedPageViewController: UIViewController {
             do {
                 let jsonDecoder = JSONDecoder()
                 jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
+                
+                // ページネーションの際は記事の中身を削除しないようにするため
+                if self.removeFlag == true {
+                    self.articles.removeAll()
+                }
                 
                 let dataItem =
                     try jsonDecoder.decode([DataItem].self,from:data)
@@ -82,31 +87,13 @@ extension FeedPageViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         
-        articleTitles.append(articles[indexPath.row].title)
-        
-        //TODO:ロジックの中身要修正(修正前に現在のロジックをissueへ記載)
-        articleTitles.forEach() { title1 in
-            var overlapping = 0
-            articleTitles.forEach() { title2 in
-                
-                if(title1 == title2) {
-                    overlapping += 1
-                }
-                
-                if(overlapping > 1) {
-                    articleTitles.remove(at: titleNum)
-                }
-            }
-            titleNum += 1
-        }
-        
-        titleNum = 0
         cell.setArticleCell(data: articles[indexPath.row])
 
         return cell
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        //-10:基本的にはcountパラメータで20個の記事を取得してくるように指定しているので、20-10=10の10個目のセル、つまり最初に表示された半分までスクロールされたら、追加で記事を読み込む(ページネーション)するようになっています。
         if articles.count >= 20 && indexPath.row == ( articles.count - 10) {
             self.request()
         }
@@ -127,33 +114,25 @@ extension FeedPageViewController: UITableViewDelegate {
     
 }
 
-//TODO:ワードで検索できるAPIに変更
+//ワードで検索できるAPIに変更しました
 extension FeedPageViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.endEditing(true)
-        searchResult.removeAll()
+        
+        guard let text = searchBar.text else { return }
+        
+        searchText = text
         page = 0
         
-        if let text = searchBar.text {
-            if text == "" {
-                request()
-            } else {
-                for data in articleTitles {
-                    if data.contains(searchBar.text!) {
-                        articles.forEach(){nowArticle in
-                            if(data == nowArticle.title) {
-                                searchResult.append(nowArticle)
-                            }
-                        }
-                    }
-                }
-            }
-            
-            articles.removeAll()
-            articleTitles.removeAll()
-            articles = searchResult
-            qiitaArticle.reloadData()
+        if text == "" {
+            removeFlag = false
+        
+        } else {
+            removeFlag = true
         }
+        
+        self.request()
     }
+    
 }
